@@ -1,16 +1,16 @@
 function Hero(game, x, y) {
 
-    Phaser.Sprite.call(this, game, x, y, 'hero');
-    this.anchor.set(0.5, 0.5);
+     Phaser.Sprite.call(this, game, x, y, 'hero');
+     this.anchor.set(0.5, 0.5);
 
-    this.game.physics.enable(this);
+     this.game.physics.enable(this);
 
-    this.body.collideWorldBounds = true;
+     this.body.collideWorldBounds = true;
 
-    this.animations.add('stop', [0]);
-    this.animations.add('run', [1, 2], 8, true);
-    this.animations.add('jump', [3]);
-    this.animations.add('fall', [4]);
+     this.animations.add('stop', [0]);
+     this.animations.add('run', [1, 2], 8, true);
+     this.animations.add('jump', [3]);
+     this.animations.add('fall', [4]);
 
 }
 
@@ -140,7 +140,7 @@ Spider.prototype.die = function() {
 
 PlayState = {};
 
-const LEVEL_COUNT = 2;
+const LEVEL_COUNT = 3;
 
 PlayState.init = function(data) {
 
@@ -183,6 +183,7 @@ PlayState.preload = function() {
 
     this.game.load.json('level:0', 'data/level00.json');
     this.game.load.json('level:1', 'data/level01.json');
+    this.game.load.json('level:2', 'data/level02.json');
 
     this.game.load.image('background', 'images/background.png');
     this.game.load.image('ground', 'images/ground.png');
@@ -202,6 +203,8 @@ PlayState.preload = function() {
     this.game.load.audio('sfx:key', 'audio/key.wav');
     this.game.load.audio('sfx:door', 'audio/door.wav');
 
+    this.game.load.spritesheet('canon', 'images/canon.png');
+    this.game.load.spritesheet('laser', 'images/laser.png');
     this.game.load.spritesheet('coin', 'images/coin_animated.png', 22, 22);
     this.game.load.spritesheet('spider', 'images/spider.png', 42, 32);
     this.game.load.spritesheet('hero', 'images/hero.png', 36, 42);
